@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Opportunity Information" icon-name="standard:opportunity">
+        <div class="slds-p-around_medium">
+            <lightning-input label="Opportunity Name" value={formData.opportunity.name} onchange={handleChange} data-field="opportunity.name"></lightning-input>
+            <lightning-combobox label="Stage" value={formData.opportunity.stageName} options={stageOptions} onchange={handleChange} data-field="opportunity.stageName"></lightning-combobox>
+            <lightning-input label="Close Date" type="date" value={formData.opportunity.closeDate} onchange={handleChange} data-field="opportunity.closeDate"></lightning-input>
+            <lightning-input label="Amount" type="number" value={formData.opportunity.amount} onchange={handleChange} data-field="opportunity.amount"></lightning-input>
+            <lightning-input label="Email" type="email" value={formData.opportunity.email} onchange={handleChange} data-field="opportunity.email"></lightning-input>
+            <lightning-input label="Phone" type="tel" value={formData.opportunity.phone} onchange={handleChange} data-field="opportunity.phone"></lightning-input>
+        </div>
+    </lightning-card>
+</template>

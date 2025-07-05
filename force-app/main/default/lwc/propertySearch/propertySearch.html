@@ -1,0 +1,70 @@
+<template>
+    <lightning-card title="Property Search" icon-name="custom:custom18">
+        <div class="slds-p-around_medium">
+            <lightning-input
+                label="Street"  
+                name="street"
+                placeholder="Enter street"
+                onchange={handleSearchTermChange}>
+            </lightning-input>
+
+             <lightning-input
+                label="City"
+                name="city"
+                placeholder="Enter city"
+                onchange={handleSearchTermChange}>
+            </lightning-input>
+
+             <lightning-input
+                label="State"
+                name="state"
+                placeholder="Enter state"
+                onchange={handleSearchTermChange}>
+            </lightning-input>
+
+             <lightning-input
+                label="Zip Code"
+                name="zip"
+                placeholder="Enter zip code"
+                onchange={handleSearchTermChange}>
+            </lightning-input>
+            
+            <lightning-button
+                label="Search"
+                variant="brand"
+                onclick={handleSearch}
+                class="slds-m-top_small">
+            </lightning-button>
+            
+            <template if:true={isLoading}>
+                <div class="slds-m-around_medium">
+                    <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                </div>
+            </template>
+            
+            <template if:true={error}>
+                <div class="slds-m-around_medium slds-text-color_error">
+                    {error}
+                </div>
+            </template>
+            
+            <template if:true={properties.data}>
+                <div class="slds-m-top_large">
+                    <lightning-datatable
+                        key-field="id"
+                        data={properties.data}
+                        columns={columns}>
+                    </lightning-datatable>                          
+                    
+                    <div class="slds-m-top_medium">
+                        <lightning-button
+                            label="Save property"
+                            variant="brand"
+                            onclick={handleSave}>
+                        </lightning-button>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

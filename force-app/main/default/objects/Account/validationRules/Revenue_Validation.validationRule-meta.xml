@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Revenue_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF( 
+ (ISPICKVAL( Support_Tier__c , &quot;Gold&quot;) 
+      &amp;&amp; 
+   (  AnnualRevenue &lt;  
+   ( $CustomMetadata.Support_Tier__mdt.Gold.Minimum_Spending__c * 20) 
+   )
+ ), TRUE, FALSE
+)</errorConditionFormula>
+    <errorMessage>Annual revenue must be atleast 20 times greater than the Gold Support Tier.</errorMessage>
+</ValidationRule>

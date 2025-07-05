@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Account Information" icon-name="standard:account">
+        <div class="slds-p-around_medium">
+            <lightning-input label="Name" value={formData.account.name} onchange={handleChange} data-field="account.name"></lightning-input>
+            <lightning-input label="Email" type="email" value={formData.account.email} onchange={handleChange} data-field="account.email"></lightning-input>
+            <lightning-input label="Phone" type="tel" value={formData.account.phone} onchange={handleChange} data-field="account.phone"></lightning-input>
+            <lightning-input label="Industry" value={formData.account.industry} onchange={handleChange} data-field="account.industry"></lightning-input>
+            <lightning-input label="Rating" value={formData.account.rating} onchange={handleChange} data-field="account.rating"></lightning-input>
+            
+            <div class="slds-m-top_medium">
+                <lightning-button label="Save" variant="brand" onclick={handleSave}></lightning-button>
+            </div>
+        </div>
+        
+        <div class="slds-p-around_medium">
+            <c-child-contact form-data={formData} ondatachange={handleDataChange}></c-child-contact>
+            <c-child-opportunity form-data={formData} onoppdatachange={handleDataChange}></c-child-opportunity>
+        </div>
+    </lightning-card>
+</template>
